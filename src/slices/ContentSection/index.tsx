@@ -17,7 +17,7 @@ const ContentSection = ({ slice }: ContentSectionProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className={styles.section}
+      className={`${styles.section} ${slice.variation === 'sectionImageText' ? styles.sectionImageText : ''}`}
     >
       <header>
         <h2 className={styles.title}>{slice.primary.section_title}</h2>

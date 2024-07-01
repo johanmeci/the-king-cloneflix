@@ -53,6 +53,10 @@
     flex-direction: row;
   }
 
+  .section.sectionImageText {
+    flex-direction: row-reverse;
+  }
+
   .section .title,
   .section .subtitle {
     text-align: left;
@@ -75,6 +79,6 @@
 
 @media screen and (min-width: 1200px) {
   .section figure img {
-    width: 90%;
+    width: 94%;
   }
 }
