@@ -1,0 +1,50 @@
+.sectionBanner {
+    height: 70dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-bottom: 8px solid var(--border-section-color);
+}
+
+.container_banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.container_banner::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.container_banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.heroText {
+    text-align: center;
+    width: 85%;
+    line-height: 1.3;
+    position: relative;
+    z-index: 1;
+}
+
+.heroText .title{
+    font-size: 2rem;
+}
+
+.heroText p {
+    font-size: 1.125rem;
+    margin: 1rem 0 0;
+    line-height: 1.5;
+}
