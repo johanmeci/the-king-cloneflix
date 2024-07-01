@@ -1,0 +1,80 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  padding: 3rem 1.5rem 4rem 1.5rem;
+  border-bottom: 10px solid var(--border-section-color);
+}
+
+.section header,
+.section figure {
+  width: 100%;
+}
+
+.section .title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.section .subtitle {
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+
+.section figure {
+  margin-top: 1.5rem;
+}
+
+.section figure img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+@media screen and (min-width: 768px) {
+
+  .section {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .section figure img {
+    width: 80%;
+  }
+
+}
+
+@media screen and (min-width: 992px) {
+
+  .section {
+    flex-direction: row;
+  }
+
+  .section .title,
+  .section .subtitle {
+    text-align: left;
+  }
+
+  .section .title {
+    font-size: 3rem;
+    font-weight: 900;
+  }
+  
+  .section .subtitle {
+    font-size: 1.5rem;
+  }
+
+  .section figure img {
+    width: 85%;
+  }
+
+}
+
+@media screen and (min-width: 1200px) {
+  .section figure img {
+    width: 90%;
+  }
+}

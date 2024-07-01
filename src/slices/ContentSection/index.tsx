@@ -1,6 +1,7 @@
 import { Content } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 import { SliceComponentProps } from "@prismicio/react";
+import styles from "./styles.module.css";
 
 /**
  * Props for `ContentSection`.
@@ -16,10 +17,11 @@ const ContentSection = ({ slice }: ContentSectionProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className={styles.section}
     >
       <header>
-        <h2>{slice.primary.section_title}</h2>
-        <p>{slice.primary.section_subtitle}</p>
+        <h2 className={styles.title}>{slice.primary.section_title}</h2>
+        <p className={styles.subtitle}>{slice.primary.section_subtitle}</p>
       </header>
       <figure>
         <PrismicNextImage field={slice.primary.section_image} />
