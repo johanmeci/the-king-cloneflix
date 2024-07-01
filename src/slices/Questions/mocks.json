@@ -1,0 +1,46 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"questions": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"title_question",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "anything",
+									"type": "Text"
+								}
+							],
+							[
+								"answer",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Enim non reprehenderit adipisicing sunt ullamco officia eu labore veniam ullamco officia fugiat sunt pariatur sit. Enim enim laborum qui irure ex Lorem voluptate Lorem."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			},
+			"section_title": {
+				"__TYPE__": "FieldContent",
+				"value": "bell",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

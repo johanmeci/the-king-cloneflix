@@ -6,7 +6,12 @@ import { createClient } from "@/prismicio";
 export default async function Home() {
 
   const client = createClient();
-  const page = await client.getByUID('homepage', 'home');
+  const page = await client.getByUID('homepage', 'home', {
+    fetchLinks:[
+      "question.title_question",
+      "question.answer"
+    ]
+  });
 
   return (
     <main className={styles.main}>
