@@ -4,7 +4,10 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomepageDocumentDataSlicesSlice = HeroSlice | ContentSectionSlice;
+type HomepageDocumentDataSlicesSlice =
+  | QuestionsSlice
+  | HeroSlice
+  | ContentSectionSlice;
 
 /**
  * Content for Homepage documents
@@ -80,7 +83,50 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = HomepageDocument;
+/**
+ * Content for Question documents
+ */
+interface QuestionDocumentData {
+  /**
+   * Title Question field in *Question*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: question.title_question
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title_question: prismic.KeyTextField;
+
+  /**
+   * Answer field in *Question*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: question.answer
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  answer: prismic.RichTextField;
+}
+
+/**
+ * Question document from Prismic
+ *
+ * - **API ID**: `question`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type QuestionDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<QuestionDocumentData>,
+    "question",
+    Lang
+  >;
+
+export type AllDocumentTypes = HomepageDocument | QuestionDocument;
 
 /**
  * Primary content in *ContentSection → Section Text-Image → Primary*
@@ -269,6 +315,88 @@ type HeroSliceVariation = HeroSliceDefault;
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
+/**
+ * Item in *Questions → Default → Primary → Questions*
+ */
+export interface QuestionsSliceDefaultPrimaryQuestionsItem {
+  /**
+   * Title Question field in *Questions → Default → Primary → Questions*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: questions.default.primary.questions[].title_question
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title_question: prismic.KeyTextField;
+
+  /**
+   * Answer field in *Questions → Default → Primary → Questions*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: questions.default.primary.questions[].answer
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  answer: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Questions → Default → Primary*
+ */
+export interface QuestionsSliceDefaultPrimary {
+  /**
+   * Section Title field in *Questions → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: questions.default.primary.section_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  section_title: prismic.KeyTextField;
+
+  /**
+   * Questions field in *Questions → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: questions.default.primary.questions[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  questions: prismic.GroupField<
+    Simplify<QuestionsSliceDefaultPrimaryQuestionsItem>
+  >;
+}
+
+/**
+ * Default variation for Questions Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type QuestionsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<QuestionsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Questions*
+ */
+type QuestionsSliceVariation = QuestionsSliceDefault;
+
+/**
+ * Questions Shared Slice
+ *
+ * - **API ID**: `questions`
+ * - **Description**: Questions
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type QuestionsSlice = prismic.SharedSlice<
+  "questions",
+  QuestionsSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -282,6 +410,8 @@ declare module "@prismicio/client" {
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
+      QuestionDocument,
+      QuestionDocumentData,
       AllDocumentTypes,
       ContentSectionSlice,
       ContentSectionSliceDefaultPrimary,
@@ -293,6 +423,11 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      QuestionsSlice,
+      QuestionsSliceDefaultPrimaryQuestionsItem,
+      QuestionsSliceDefaultPrimary,
+      QuestionsSliceVariation,
+      QuestionsSliceDefault,
     };
   }
 }
