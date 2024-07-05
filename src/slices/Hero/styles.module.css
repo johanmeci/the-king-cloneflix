@@ -1,5 +1,6 @@
 .sectionBanner {
     height: 70dvh;
+    width: 100dvw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -48,3 +49,36 @@
     margin: 1rem 0 0;
     line-height: 1.5;
 }
+
+@media screen and (min-width: 768px) {
+
+    .sectionBanner {
+        flex-direction: row;
+        height: 100dvh;
+    }
+  }
+  
+  @media screen and (min-width: 992px) {
+  
+    .sectionBanner {
+        flex-direction: row;
+        height: 100dvh;
+        width: 100dvw;
+    }
+  }
+  
+  @media screen and (min-width: 1200px) {
+
+    .sectionBanner {
+        height: 150dvh;
+        width: 100dvw;
+    }
+
+    .heroText .title{
+        font-size: 3rem;
+    }
+
+    .heroText p {
+        font-size: 1.5rem;
+    }
+  }
