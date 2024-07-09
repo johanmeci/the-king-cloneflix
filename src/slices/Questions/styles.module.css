@@ -76,6 +76,12 @@
     font-weight: 900;
   }
 
+  .container_questions {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .container_questions .question .title,
   .container_questions .question .answer {
     font-size: 1.5rem;
