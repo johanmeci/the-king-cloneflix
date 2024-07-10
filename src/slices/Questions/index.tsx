@@ -4,6 +4,7 @@ import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import styles from "./styles.module.css";
 import { useState } from "react";
 import PlusIcon from "@/app/components/icons/PlusIcon";
+import GetStarted from "@/app/components/getStarted/getStarted";
 
 /**
  * Props for `Questions`.
@@ -62,6 +63,8 @@ const Questions = ({ slice }: QuestionsProps): JSX.Element => {
           </div>
 
         ))}
+
+        <GetStarted text="Ready to watch? Enter your email to create or restart your membership." label="Get Started" />
       </article>
     </section>
   );
