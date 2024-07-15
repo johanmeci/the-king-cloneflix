@@ -1,0 +1,62 @@
+{
+  "id": "footer",
+  "type": "SharedSlice",
+  "name": "Footer",
+  "description": "Footer",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title_footer": {
+          "type": "Text",
+          "config": {
+            "label": "Title Footer",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "footerLogin",
+      "name": "Footer - Login",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title_footer": {
+          "type": "Text",
+          "config": {
+            "label": "Title Footer",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "footerDashboard",
+      "name": "Footer - Dashboard",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title_footer": {
+          "type": "Text",
+          "config": {
+            "label": "Title Footer",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+.section {
+  width: 100%;
+  padding: 3rem 1.5rem;
+}
+
+.linksFooter {
+  margin-top: 2rem;
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.linksFooter .link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: underline;
+  font-size: .9rem;
+}
+
+.section p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footerLetter {
+  margin-top: 2rem;
+  font-size: .9rem;
+}
+
+@media screen and (min-width: 768px) {
+
+  .section {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+}
+
+@media screen and (min-width: 992px) {
+  .section .container {
+    max-width: 80%;
+    margin: auto;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .section {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}

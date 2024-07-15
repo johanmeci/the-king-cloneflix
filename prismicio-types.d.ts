@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomepageDocumentDataSlicesSlice =
+  | FooterSlice
   | QuestionsSlice
   | HeroSlice
   | ContentSectionSlice;
@@ -244,6 +245,107 @@ export type ContentSectionSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Footer → Default → Primary*
+ */
+export interface FooterSliceDefaultPrimary {
+  /**
+   * Title Footer field in *Footer → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.title_footer
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title_footer: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Footer Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FooterSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *Footer → Footer - Login → Primary*
+ */
+export interface FooterSliceFooterLoginPrimary {
+  /**
+   * Title Footer field in *Footer → Footer - Login → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footerLogin.primary.title_footer
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title_footer: prismic.KeyTextField;
+}
+
+/**
+ * Footer - Login variation for Footer Slice
+ *
+ * - **API ID**: `footerLogin`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterSliceFooterLogin = prismic.SharedSliceVariation<
+  "footerLogin",
+  Simplify<FooterSliceFooterLoginPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *Footer → Footer - Dashboard → Primary*
+ */
+export interface FooterSliceFooterDashboardPrimary {
+  /**
+   * Title Footer field in *Footer → Footer - Dashboard → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footerDashboard.primary.title_footer
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title_footer: prismic.KeyTextField;
+}
+
+/**
+ * Footer - Dashboard variation for Footer Slice
+ *
+ * - **API ID**: `footerDashboard`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterSliceFooterDashboard = prismic.SharedSliceVariation<
+  "footerDashboard",
+  Simplify<FooterSliceFooterDashboardPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Footer*
+ */
+type FooterSliceVariation =
+  | FooterSliceDefault
+  | FooterSliceFooterLogin
+  | FooterSliceFooterDashboard;
+
+/**
+ * Footer Shared Slice
+ *
+ * - **API ID**: `footer`
+ * - **Description**: Footer
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterSlice = prismic.SharedSlice<"footer", FooterSliceVariation>;
+
+/**
  * Primary content in *Hero → Default → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -419,6 +521,14 @@ declare module "@prismicio/client" {
       ContentSectionSliceVariation,
       ContentSectionSliceDefault,
       ContentSectionSliceSectionImageText,
+      FooterSlice,
+      FooterSliceDefaultPrimary,
+      FooterSliceFooterLoginPrimary,
+      FooterSliceFooterDashboardPrimary,
+      FooterSliceVariation,
+      FooterSliceDefault,
+      FooterSliceFooterLogin,
+      FooterSliceFooterDashboard,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
