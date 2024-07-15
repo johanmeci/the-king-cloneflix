@@ -19,13 +19,15 @@ const ContentSection = ({ slice }: ContentSectionProps): JSX.Element => {
       data-slice-variation={slice.variation}
       className={`${styles.section} ${slice.variation === 'sectionImageText' ? styles.sectionImageText : ''}`}
     >
-      <header>
-        <h2 className={styles.title}>{slice.primary.section_title}</h2>
-        <p className={styles.subtitle}>{slice.primary.section_subtitle}</p>
-      </header>
-      <figure>
-        <PrismicNextImage field={slice.primary.section_image} />
-      </figure>
+      <article className={styles.section_container}>
+        <header>
+          <h2 className={styles.title}>{slice.primary.section_title}</h2>
+          <p className={styles.subtitle}>{slice.primary.section_subtitle}</p>
+        </header>
+        <figure>
+          <PrismicNextImage field={slice.primary.section_image} />
+        </figure>
+      </article>
     </section>
   );
 };
