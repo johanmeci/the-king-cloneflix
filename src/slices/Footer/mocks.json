@@ -1,0 +1,48 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title_footer": {
+				"__TYPE__": "FieldContent",
+				"value": "massage",
+				"type": "Text"
+			}
+		},
+		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "footerLogin",
+		"primary": {
+			"title_footer": {
+				"__TYPE__": "FieldContent",
+				"value": "require",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "footerDashboard",
+		"primary": {
+			"title_footer": {
+				"__TYPE__": "FieldContent",
+				"value": "dream",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	}
+]
